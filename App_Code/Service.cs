@@ -37,10 +37,8 @@ public class Service : System.Web.Services.WebService
         if (emisor == "")
             emisor = usuarioMail;
 
-        //receptor = "subgerente.sistemas@oportunidadtupatrimonio.com";
         string FROM = emisor;
-        //string FROM = "subgerente.sistemas@oportunidadtupatrimonio.com";
-        string FROMNAME = "Notificaciones OportunidadTuPatrimonio";
+        string FROMNAME = "Notificaciones";
         string SMTP_USERNAME = usuarioMail;
         string SMTP_PASSWORD = passMail;
         string HOST = smtpMail;
@@ -54,13 +52,13 @@ public class Service : System.Web.Services.WebService
                                     <html lang='es'>
                                       <head>
                                         <meta charset='utf-8'>
-                                        <title>OportunidadTuPatrimonio</title>
+                                        <title>Notificaciones DATACREDIT</title>
                                       </head>
                                       <body>
                                         <table style='max-width: 800px; padding: 10px; margin:0 auto; border-collapse: collapse;'>
                                           <tr>
                                             <td style='padding: 0;'>
-                                                <img alt='Ven-SumaT' style='padding: 0; display:block;' src='cid:encabezado' width='30%' height='30%'>
+                                                <img alt='DATACREDIT' style='padding: 0; display:block;' src='cid:encabezado' width='30%' height='30%'>
                                             </td>
                                           </tr>"
                                           +contenido+
