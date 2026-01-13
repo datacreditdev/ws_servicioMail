@@ -55,14 +55,18 @@ public class Service : System.Web.Services.WebService
                                         <title>Notificaciones DATACREDIT</title>
                                       </head>
                                       <body>
-                                        <table style='max-width: 800px; padding: 10px; margin:0 auto; border-collapse: collapse;'>
+                                        <table align='center' style='max-width: 800px; padding: 10px; margin:0 auto; border-collapse: collapse;'>
                                           <tr>
-                                            <td style='padding: 0;'>
-                                                <img alt='DATACREDIT' style='padding: 0; display:block;' src='cid:encabezado' width='30%' height='30%'>
+                                            <td align='center' style='padding: 0;'>
+                                                <img alt='DATACREDIT' style='padding: 0; display:block;' src='cid:encabezado' width='60%' height='60%'>
                                             </td>
-                                          </tr>"
-                                          +contenido+
-                                        @"</table>
+                                          </tr>
+                                          <tr>
+                                            <td td align='center' style='padding: 10px;'> "
+                                              +contenido+
+                                           @"</td>
+                                          </tr>      
+                                        </table>
                                       </body>
                                     </html>");
 
@@ -94,8 +98,11 @@ public class Service : System.Web.Services.WebService
         message.Subject = SUBJECT;
         message.Body = BODY;
 
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
         using (var client = new SmtpClient(HOST, PORT))
         {
+            client.UseDefaultCredentials = false;
             client.Credentials = new NetworkCredential(SMTP_USERNAME, SMTP_PASSWORD);
             client.EnableSsl = true;
             
